@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Calcule seu IMC :)</title>
+<meta name="generator" content="Geany 1.36" />
+
+<script>
+function calc() {
+
+  //Substitui a vírgula por ponto dos valores digitados
+  var peso = document.getElementById('peso').value.replace(/,/g, '.');;
+  var altura = document.getElementById('altura').value.replace(/,/g, '.');;
+
+  // Verifica se os campos não estão vazios
+  if (peso == '' || altura == '') {
+    document.getElementById("message").innerHTML = 'Por favor, preencha os campos';
+    return false;
+  }
+
+  // Calcula o IMC
+  var resultado = (peso / (altura * altura));
+  var message = '';
+
+  // Verifica a condição de IMC a pessoa pertence
+  if (resultado < 17) {
+    message = 'Cuidado! Você está muito abaixo do peso.';
+  } else if (resultado >= 17 && resultado <= 18.49) {
+    message = 'Você está Abaixo do peso';
+  } else if (resultado >= 18.5 && resultado <= 24.99) {
+    message = 'Você está com o Peso ideal';
+  } else if (resultado >= 25 && resultado <= 29.99) {
+    message = 'Você está com Sobrepeso';
+  } else if (resultado >= 30 && resultado <= 34.99) {
+    message = 'Você tem Obesidade Grau 1';
+  } else if (resultado >= 35 && resultado <= 39.99) {
+    message = 'Você tem Obesidade Grau 2';
+  } else if (resultado >= 40) {
+    message = 'Você tem Obesidade Grau 3';
+  }
+
+  // Exibe o resultado
+  resultado = resultado.toFixed(2).replace(/\./g, ',');
+  document.getElementById("message").innerHTML = 'Seu IMC é : ' + resultado + '<br>' + message;
+}
+</script>
+<style>
+@import 'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap';
+body {
+  background-color: #323264;
+  font-family: 'DM Mono', monospace;
+  font-size: 12pt;
+  color: white;
+  text-align: justify;
+}
+#content {
+  padding: 0px;
+  margin 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -135px;
+  margin-top: -135px;
+}
+
+input[type='text'] {
+  font-family: 'DM Mono', monospace;
+  width: 250px;
+  height: 45px;
+  margin: 2px 540px 5px 540px;
+  border: none;
+  border-radius: 3px;
+  padding: 0 0 0 15px;
+  font-size: 22px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+input[type="button"] {
+  font-family: 'DM Mono', monospace;
+  width: 263px;
+  padding: 0 0 0 5px;
+  margin: 0 auto;
+  display: table;
+  font-weight: bold;
+  height: 50px;
+  border-radius: 3px;
+  margin-top: 5px;
+  font-size: 23px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #323264;
+-webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+-moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+}
+
+::-webkit-input-placeholder {
+  color: #ffffff;
+  font-family: 'DM Mono', monospace;
+}
+
+:-moz-placeholder {
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+}
+
+::-moz-placeholder {
+  color: #ffffff;
+  font-family: 'Indie Flower', cursive;
+}
+
+:-ms-input-placeholder {
+  color: #ffffff;
+  font-family: 'DM Mono', monospace;
+}
+
+#message {
+  font-size: 20px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#titulo {
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+table, th, td{
+background-color: #ffffff;
+color: black;
+width: 30%;
+border: 1px solid black;
+border-collapse: collapse;
+column-fill: auto;
+padding: auto;
+margin: auto;
+text-align: center;
+-webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+-moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.7);
+}
+
+#paragrafo{
+	width: 50%;
+	padding: auto;
+	margin: auto;
+	}
+</style>
+</head>
+
+<body>
+    <main>
+        <div id="paragrafo">
+		<h2 id="titulo">O índice de massa corporal (IMC)</h2>
+        <p>é uma medida internacional usada para calcular se uma pessoa está no peso ideal. 
+		Tal índice foi desenvolvido pelo polímata Lambert Quételet no fim do século XIX. Trata-se de um método fácil e rápido para a avaliação 
+		do nível de gordura de cada pessoa, ou seja, é um preditor internacional de obesidade adotado pela Organização Mundial da Saúde (OMS).</p>
+        </div>
+         </article>
+                <table>
+                    <tbody>
+                    <tr>
+                    <td><strong>IMC</strong></td>
+                    <td><strong>Condição</strong></td>
+                    </tr>
+                    <tr>
+                    <td> < 18,5</td>
+                    <td>Baixo peso</td>
+                    </tr>
+                    <tr>
+                    <td>18,5 - 25</td>
+                    <td>Peso ideal</td>
+                    </tr>
+                    <tr>
+                    <td>25 - 30</td>
+                    <td>Sobrepeso</td>
+                    </tr>
+                    <tr>
+                    <td>30 - 35</td>
+                    <td>Obesidade Grau 1</td>
+                    </tr>
+                    <tr>
+                    <td>35 - 40</td>
+                    <td>Obesidade Grau 2</td>
+                    </tr>
+                    <tr>
+                    <td>> 40</td>
+                    <td>Obesidade Grau 3</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+          <h2 id="titulo">Calcule seu IMC</h2>
+          <input id="peso" type="text" placeholder="Peso (##.#)" /><br>
+          <input id="altura" type="text" placeholder="Altura (#.##)" /><br>
+          <input type="button" value="CALCULAR" onclick="calc()" /><br>
+        <div id="message"></div>
+    </main>
+</body>
+</html>
